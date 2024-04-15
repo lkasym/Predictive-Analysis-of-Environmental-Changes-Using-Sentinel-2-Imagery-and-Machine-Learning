@@ -78,7 +78,7 @@ elif section == 'Trend':
             Urban trends show a steady increase, indicating ongoing urban expansion. The trend highlights the critical need for sustainable urban planning to accommodate growth without compromising environmental integrity.
         """)
     elif trend_option == 'Overall':
-        st.image("path_to_overall_image.png", caption="Overall Trends")
+        
         st.write("""
             The overall data indicates urban expansion at the expense of vegetation and possibly affecting water bodies. This comprehensive view underscores the importance of integrated environmental management strategies.
         """)
