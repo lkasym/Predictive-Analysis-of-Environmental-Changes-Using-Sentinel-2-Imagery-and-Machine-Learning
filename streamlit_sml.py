@@ -73,17 +73,23 @@ elif section == 'Trend':
     elif trend_option == 'Water':
         st.image("Water_Area_Trends.png", caption="Water Trends")
         st.write("""
-            Water trends indicate variability with a slight overall decrease over time. This could reflect climate change impacts or changes in land use affecting water bodies.
+             Original: Overall lower values than urban areas with similar variability.\n
+             Trend: Shows an increasing trend until mid-2021, followed by a sharp decline, leveling off in 2023.\n
+             Seasonality: Noticeable seasonality, but less pronounced than in urban areas.\n
+             Residuals: Larger spikes, particularly in 2021, indicate some significant anomalies not explained by trend or seasonality.
         """)
     elif trend_option == 'Urban':
         st.image("Urban_Area_Trends.png", caption="Urban Trends")
         st.write("""
-            Urban trends show a steady increase, indicating ongoing urban expansion. The trend highlights the critical need for sustainable urban planning to accommodate growth without compromising environmental integrity.
+            Original: Fluctuations with several peaks and troughs suggest variability in urban area data points.
+            Trend: A general upward trend, implying an increase in urban areas over time.
+            Seasonality: Strong, consistent seasonal patterns, possibly indicating seasonal changes in urban activities or reporting.
+            Residuals: Residuals are relatively small, which suggests that the trend and seasonality components capture most of the variation in the data.
         """)
     elif trend_option == 'Overall':
         
         st.write("""
-            The overall data indicates urban expansion at the expense of vegetation and possibly affecting water bodies. This comprehensive view underscores the importance of integrated environmental management strategies.
+            The data indicates expansion in urban areas, with a strong seasonal component, suggesting that urban development may be cyclical or impacted by seasonal factors. Water areas fluctuated with a significant shift in mid-2021, which could be due to environmental events or changes in measurement. Vegetation shows the most pronounced seasonality, consistent with natural growth and dormancy cycles, but the overall decline in trend raises concerns about possible deforestation or land conversion. The residuals in all three graphs highlight the presence of anomalies or irregularities that the trend and seasonal adjustments do not fully account for, indicating complex dynamics at play. The year 2021 appears to be particularly anomalous across all three categories, suggesting an event or series of events that significantly impacted these areas.
         """)
 
 elif section == 'Prediction':
