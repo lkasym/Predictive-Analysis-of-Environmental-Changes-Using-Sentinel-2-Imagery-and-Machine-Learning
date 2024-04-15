@@ -3,14 +3,23 @@ import numpy as np
 import pickle
 import os
 
-# Load models
-model_directory = 'C:\\Users\\laksh\\Downloads\\sml project'
-models = {}
+model_paths = {
+    'SVM_water_area': 'SVM_water_area.pkl',
+    'SVM_vegetation_area': 'SVM_vegetation_area.pkl',
+    'SVM_urban_area': 'SVM_urban_area.pkl',
+    'Gradient_Boosting_water_area': 'Gradient_Boosting_water_area.pkl',
+    'Gradient_Boosting_vegetation_area': 'Gradient_Boosting_vegetation_area.pkl',
+    'Gradient_Boosting_urban_area': 'Gradient_Boosting_urban_area.pkl',
+    'Random_Forest_water_area': 'Random_Forest_water_area.pkl',
+    'Random_Forest_vegetation_area': 'Random_Forest_vegetation_area.pkl',
+    'Random_Forest_urban_area': 'Random_Forest_urban_area.pkl',
+    'Linear_Regression_water_area': 'Linear_Regression_water_area.pkl',
+    'Linear_Regression_vegetation_area': 'Linear_Regression_vegetation_area.pkl',
+    'Linear_Regression_urban_area': 'Linear_Regression_urban_area.pkl'
+}
 
-for filename in os.listdir(model_directory):
-    if filename.endswith('.pkl'):
-        model_path = os.path.join(model_directory, filename)
-        models[filename] = pickle.load(open(model_path, 'rb'))
+# Load models directly
+models = {key: pickle.load(open(path, 'rb')) for key, path in model_paths.items()}
 
 # Hardcoded average densities for each month
 monthly_avg_densities = {
@@ -36,7 +45,7 @@ def get_model_and_densities(month, model_type, area_type):
 
 # Navigation
 st.sidebar.title("Navigation")
-section = st.sidebar.radio("Go to", ('Home', 'Trend', 'Prediction', 'Data Analysis', 'Team Members'))
+section = st.sidebar.radio("Go to", ('Home', 'Trend', 'Prediction'))
 
 if section == 'Home':
     st.header("Change Analysis in Pune")
@@ -45,24 +54,24 @@ if section == 'Home':
         
         Understanding the dynamics of urban expansion and environmental impact requires robust data analysis and predictive tools to aid city planners and policy makers in making informed decisions.
     """)
-    st.image("C:\Users\laksh\Downloads\Screenshot 2024-04-15 041025.png", caption="Data Labelling Illustration")
+    st.image("Screenshot 2024-04-15 041025.png", caption="Data Labelling Illustration")
 
 elif section == 'Trend':
     st.header("Trend Analysis Dashboard")
     trend_option = st.selectbox("Choose a trend to display", ('Vegetation', 'Water', 'Urban', 'Overall'))
     
     if trend_option == 'Vegetation':
-        st.image("C:\Users\laksh\Downloads\Decomposition_Plots\Vegetation_Area_Trends.png", caption="Vegetation Trends")
+        st.image("Vegetation_Area_Trends.png", caption="Vegetation Trends")
         st.write("""
             Vegetation trends show high variability, with pronounced seasonality likely due to natural growth cycles. The general trend indicates a decline, suggesting potential deforestation or urban development impacts.
         """)
     elif trend_option == 'Water':
-        st.image("C:\Users\laksh\Downloads\Decomposition_Plots\Water_Area_Trends.png", caption="Water Trends")
+        st.image("Water_Area_Trends.png", caption="Water Trends")
         st.write("""
             Water trends indicate variability with a slight overall decrease over time. This could reflect climate change impacts or changes in land use affecting water bodies.
         """)
     elif trend_option == 'Urban':
-        st.image("C:\Users\laksh\Downloads\Decomposition_Plots\Urban_Area_Trends.png", caption="Urban Trends")
+        st.image("Urban_Area_Trends.png", caption="Urban Trends")
         st.write("""
             Urban trends show a steady increase, indicating ongoing urban expansion. The trend highlights the critical need for sustainable urban planning to accommodate growth without compromising environmental integrity.
         """)
