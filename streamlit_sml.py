@@ -108,5 +108,6 @@ elif section == 'Prediction':
             inputs = np.array([[year, month, avg_densities['vegetation_density'], avg_densities['water_density'], avg_densities['urban_density']]])
             prediction = model.predict(inputs)[0]
             st.success(f"Prediction: {prediction}")
+            st.image("Screenshot 2024-04-15 0347511.png", caption="Accuracy detail")
 
 
