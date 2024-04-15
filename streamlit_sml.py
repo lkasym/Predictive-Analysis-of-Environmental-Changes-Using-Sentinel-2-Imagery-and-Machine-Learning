@@ -65,9 +65,9 @@ elif section == 'Trend':
     if trend_option == 'Vegetation':
         st.image("Vegetation_Area_Trends.png", caption="Vegetation Trends")
         st.write("""
-           Original: High variability, with the largest values among the three categories.</li>
-           Trend: Starts relatively stable, then declines from 2021 to 2023, potentially indicating a reduction in vegetation areas.
-            Seasonality: Very pronounced, indicating strong seasonal effects on vegetation, likely due to natural growth cycles.
+           Original: High variability, with the largest values among the three categories.\n
+           Trend: Starts relatively stable, then declines from 2021 to 2023, potentially indicating a reduction in vegetation areas.\n
+            Seasonality: Very pronounced, indicating strong seasonal effects on vegetation, likely due to natural growth cycles.\n
             Residuals: Notable spikes, especially around 2021 and 2023, suggesting events or changes not captured by the model.
         """)
     elif trend_option == 'Water':
