@@ -38,10 +38,12 @@ monthly_avg_densities = {
 }
 
 def get_model_and_densities(month, model_type, area_type):
-    model_filename = f"{model_type}_{area_type}_area.pkl"
+    # Notice the removal of '_area.pkl' to match the actual keys in the models dictionary
+    model_filename = f"{model_type}_{area_type}_area"
     model = models.get(model_filename)
     avg_densities = monthly_avg_densities.get(month, {'vegetation_density': 0.5, 'water_density': 0.2, 'urban_density': 0.3})
     return model, avg_densities
+
 
 # Navigation
 st.sidebar.title("Navigation")
